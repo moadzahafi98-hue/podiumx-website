@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Member Login – PodiumX Performance Center</title>
+  <meta name="description" content="Access the PodiumX member portal to review programming, track progress, and manage bookings.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="login">
+  <header>
+    <div class="container navbar">
+      <a class="logo" href="index.html">PodiumX</a>
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html" data-nav-link data-page="home">Home</a></li>
+          <li><a href="about.html" data-nav-link data-page="about">About</a></li>
+          <li><a href="programs.html" data-nav-link data-page="programs">Programs</a></li>
+          <li><a href="schedule.html" data-nav-link data-page="schedule">Schedule</a></li>
+          <li><a href="facility.html" data-nav-link data-page="facility">Facility</a></li>
+          <li><a href="pricing.html" data-nav-link data-page="pricing">Pricing</a></li>
+          <li><a href="blog.html" data-nav-link data-page="blog">Blog</a></li>
+          <li><a href="contact.html" data-nav-link data-page="contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="btn-secondary" onclick="location.href='schedule.html'">Book Now</button>
+      <button class="mobile-toggle" data-mobile-toggle aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" data-mobile-menu>
+      <ul>
+        <li><a href="index.html" data-page="home">Home</a></li>
+        <li><a href="about.html" data-page="about">About</a></li>
+        <li><a href="programs.html" data-page="programs">Programs</a></li>
+        <li><a href="schedule.html" data-page="schedule">Schedule</a></li>
+        <li><a href="facility.html" data-page="facility">Facility</a></li>
+        <li><a href="pricing.html" data-page="pricing">Pricing</a></li>
+        <li><a href="blog.html" data-page="blog">Blog</a></li>
+        <li><a href="contact.html" data-page="contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Member Portal</h1>
+        <p>Log in to access your training calendar, performance metrics, and upcoming bookings.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="card login-card">
+          <h2>Welcome Back</h2>
+          <form class="form-card" data-login-form>
+            <div>
+              <label for="login-email">Email</label>
+              <input id="login-email" name="email" type="email" required>
+            </div>
+            <div>
+              <label for="login-password">Password</label>
+              <input id="login-password" name="password" type="password" required>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin: 1rem 0;">
+              <label style="display:flex; align-items:center; gap:0.5rem; font-weight:500;">
+                <input type="checkbox" name="remember" style="width:auto;">
+                <span>Remember me</span>
+              </label>
+              <a href="#" style="color: var(--primary-color); font-size: 0.9rem;">Forgot password?</a>
+            </div>
+            <button class="btn-primary" type="submit">Log In</button>
+          </form>
+          <div style="min-height: 1.5rem;"></div>
+          <p style="color: var(--text-muted); text-align: center;">New to PodiumX? <a href="schedule.html" style="color: var(--primary-color);">Book your assessment</a> to get started.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="font-size: 1.8rem;">PodiumX</div>
+          <p>Casablanca's elite strength, conditioning, and recovery center.</p>
+          <div class="social-links" aria-label="Social media">
+            <a href="https://www.instagram.com" aria-label="Instagram">IG</a>
+            <a href="https://www.facebook.com" aria-label="Facebook">FB</a>
+            <a href="https://www.linkedin.com" aria-label="LinkedIn">IN</a>
+          </div>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul class="link-list">
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Hours</h4>
+          <p>Mon – Fri: 06:00-10:00 / 12:00-14:00 / 17:00-21:00</p>
+          <p>Saturday: 08:00-12:00</p>
+          <p>Sunday: Recovery Zone only</p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>info@podiumx.ma</p>
+          <p>+212 (0) XX XXX XXXX</p>
+          <p>Centre Casablanca-Settat, Casablanca, Morocco</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2025 PodiumX Performance Center. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

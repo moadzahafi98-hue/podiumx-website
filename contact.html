@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact PodiumX Performance Center</title>
+  <meta name="description" content="Get in touch with PodiumX for membership inquiries, facility tours, and coaching support.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="contact">
+  <header>
+    <div class="container navbar">
+      <a class="logo" href="index.html">PodiumX</a>
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html" data-nav-link data-page="home">Home</a></li>
+          <li><a href="about.html" data-nav-link data-page="about">About</a></li>
+          <li><a href="programs.html" data-nav-link data-page="programs">Programs</a></li>
+          <li><a href="schedule.html" data-nav-link data-page="schedule">Schedule</a></li>
+          <li><a href="facility.html" data-nav-link data-page="facility">Facility</a></li>
+          <li><a href="pricing.html" data-nav-link data-page="pricing">Pricing</a></li>
+          <li><a href="blog.html" data-nav-link data-page="blog">Blog</a></li>
+          <li><a href="contact.html" data-nav-link data-page="contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="btn-secondary" onclick="location.href='schedule.html'">Book Now</button>
+      <button class="mobile-toggle" data-mobile-toggle aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" data-mobile-menu>
+      <ul>
+        <li><a href="index.html" data-page="home">Home</a></li>
+        <li><a href="about.html" data-page="about">About</a></li>
+        <li><a href="programs.html" data-page="programs">Programs</a></li>
+        <li><a href="schedule.html" data-page="schedule">Schedule</a></li>
+        <li><a href="facility.html" data-page="facility">Facility</a></li>
+        <li><a href="pricing.html" data-page="pricing">Pricing</a></li>
+        <li><a href="blog.html" data-page="blog">Blog</a></li>
+        <li><a href="contact.html" data-page="contact">Contact</a></li>
+        <li><a href="login.html">Member Login</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Talk to the PodiumX Team</h1>
+        <p>Our front desk and coaching staff are ready to help with memberships, scheduling, or facility tours.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container grid grid-2">
+        <div class="card">
+          <h2>Visit Us</h2>
+          <p>Centre Casablanca-Settat<br>Casablanca, Morocco</p>
+          <p style="margin-top: 1rem;">
+            <strong>Email:</strong> info@podiumx.ma<br>
+            <strong>Phone:</strong> +212 (0) XX XXX XXXX
+          </p>
+          <p style="margin-top: 1rem;">
+            <strong>Hours:</strong><br>
+            Mon – Fri: 06:00-10:00 / 12:00-14:00 / 17:00-21:00<br>
+            Saturday: 08:00-12:00<br>
+            Sunday: Recovery Zone only
+          </p>
+          <div class="map" style="margin-top: 1.5rem;">
+            <iframe title="PodiumX location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.5821352511214!2d-7.589843!3d33.573110!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd48adcb0f6f%3A0x6d28e9e4b1c3d0f4!2sCasablanca%20Finance%20City!5e0!3m2!1sen!2sma!4v1700000000000" width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Send Us a Message</h2>
+          <form class="form-card" data-contact-form>
+            <div class="form-grid">
+              <div>
+                <label for="contact-name">Full Name</label>
+                <input id="contact-name" name="name" type="text" required>
+              </div>
+              <div>
+                <label for="contact-email">Email</label>
+                <input id="contact-email" name="email" type="email" required>
+              </div>
+            </div>
+            <div class="form-grid">
+              <div>
+                <label for="contact-phone">Phone</label>
+                <input id="contact-phone" name="phone" type="tel">
+              </div>
+              <div>
+                <label for="contact-topic">Topic</label>
+                <select id="contact-topic" name="topic">
+                  <option value="Membership">Membership</option>
+                  <option value="Facility Tour">Facility Tour</option>
+                  <option value="Coaching">Coaching</option>
+                  <option value="Support">Support</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" required></textarea>
+            </div>
+            <button class="btn-primary" type="submit" style="margin-top: 1.5rem;">Send Message</button>
+          </form>
+          <div style="min-height: 2rem;"></div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background: linear-gradient(135deg, rgba(0,0,0,0.94), rgba(15,15,15,0.94));">
+      <div class="container grid grid-3">
+        <div class="card">
+          <h3>New Members</h3>
+          <p>Book a free evaluation to discover your starting point and receive a personalized roadmap.</p>
+          <a class="btn-secondary" href="schedule.html" style="margin-top: 1rem;">Book Evaluation</a>
+        </div>
+        <div class="card">
+          <h3>Corporate Teams</h3>
+          <p>Create performance programs for your organization. We support executive wellness and athlete development.</p>
+          <a class="btn-secondary" href="contact.html" style="margin-top: 1rem;">Request Proposal</a>
+        </div>
+        <div class="card">
+          <h3>Media & Partnerships</h3>
+          <p>Collaborate with PodiumX on events, workshops, or content. We welcome local and international partners.</p>
+          <a class="btn-secondary" href="contact.html" style="margin-top: 1rem;">Partner with Us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="font-size: 1.8rem;">PodiumX</div>
+          <p>Casablanca's elite strength, conditioning, and recovery center.</p>
+          <div class="social-links" aria-label="Social media">
+            <a href="https://www.instagram.com" aria-label="Instagram">IG</a>
+            <a href="https://www.facebook.com" aria-label="Facebook">FB</a>
+            <a href="https://www.linkedin.com" aria-label="LinkedIn">IN</a>
+          </div>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul class="link-list">
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Hours</h4>
+          <p>Mon – Fri: 06:00-10:00 / 12:00-14:00 / 17:00-21:00</p>
+          <p>Saturday: 08:00-12:00</p>
+          <p>Sunday: Recovery Zone only</p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>info@podiumx.ma</p>
+          <p>+212 (0) XX XXX XXXX</p>
+          <p>Centre Casablanca-Settat, Casablanca, Morocco</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2025 PodiumX Performance Center. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
