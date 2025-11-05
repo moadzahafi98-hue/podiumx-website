@@ -194,9 +194,24 @@ document.addEventListener('DOMContentLoaded', () => {
       const gender = formData.get('gender');
       const goal = formData.get('goal');
       const activity = formData.get('activity');
-      const sleep = formData.get('sleep');
+      const sleep = toNumber(formData.get('sleep'));
       const stress = formData.get('stress');
       const hydration = formData.get('hydration');
+      const trainingFocus = formData.get('trainingFocus');
+      const weeklySessions = Number(formData.get('weeklySessions') || 0);
+      const bodyComp = formData.get('bodyfat') || 'No recent assessment recorded';
+      const preferences = formData.getAll('preferences');
+      const avoidList = formData.getAll('avoid');
+      const schedule = formData.getAll('schedule');
+      const supplements = formData.getAll('supplements');
+      const digestion = formData.getAll('digestion');
+      const checkins = formData.get('checkins');
+      const trainingFocusLabel = {
+        strength: 'Strength & power dominant',
+        mixed: 'Mixed strength & conditioning',
+        endurance: 'Endurance dominant',
+        skill: 'Skill / technical priority',
+      }[trainingFocus] || 'Mixed demands';
 
       let bmr = 10 * weight + 6.25 * height - 5 * age;
       if (gender === 'male') bmr += 5;
@@ -232,23 +247,92 @@ document.addEventListener('DOMContentLoaded', () => {
       const fatCalories = fatGrams * 9;
       const remainingCalories = Math.max(totalCalories - (proteinCalories + fatCalories), totalCalories * 0.3);
       const carbGrams = Math.max(Math.round(remainingCalories / 4), 90);
-      const hydrationTarget = weight ? `${Math.round(weight * 0.04 * 1000) / 1000} L` : '3.0 L';
 
-      if (sleep && Number(sleep) < 7) {
+      const hydrationTargets = {
+        '2l': Math.max(weight * 0.035, 2.5),
+        '3l': Math.max(weight * 0.04, 3),
+        variable: Math.max(weight * 0.04, 2.8),
+      };
+      const hydrationTarget = `${hydrationTargets[hydration] ? hydrationTargets[hydration].toFixed(1) : '3.0'} L`;
+      const hydrationNarrative = {
+        '2l': 'Baseline hydration is steady — maintain electrolytes 3x weekly.',
+        '3l': 'Hydration compliance is excellent — continue peri-training strategy.',
+        variable: 'Hydration varies — implement daily tracking and electrolyte scheduling.',
+      }[hydration] || 'Track hydration alongside training readiness.';
+
+      if (sleep && sleep < 7) {
         coachNotes.push('Prioritize 7-9 hours of sleep to normalize appetite hormones.');
       }
       if (stress === 'high') {
         coachNotes.push('Layer in magnesium-rich foods and breathwork to down-regulate stress.');
       }
-      if (!hydration) {
-        coachNotes.push('Log hydration daily so we can correlate intake to readiness scores.');
+      if (hydration === 'variable') {
+        coachNotes.push('Institute a measured hydration plan with sodium benchmarks on heavy days.');
       } else {
-        coachNotes.push('Hydration notes recorded – we will pair this with sweat testing during evaluations.');
+        coachNotes.push('Hydration routine is on-track — we will validate with sweat testing.');
+      }
+
+      const focusNotes = {
+        strength: 'Elevate peri-lift carbohydrates and creatine to support neural output.',
+        mixed: 'Balance macro timing across strength and conditioning double-days.',
+        endurance: 'Shift carbohydrate density to long aerobic days with gut training blocks.',
+        skill: 'Favor lighter meals on technical days and anchor recovery nutrition post-session.',
+      };
+      if (focusNotes[trainingFocus]) {
+        coachNotes.push(focusNotes[trainingFocus]);
+      }
+
+      if (weeklySessions >= 5) {
+        coachNotes.push('Match fueling windows to high-frequency schedule — add intra-session carbs when doubles occur.');
+      }
+      if (schedule.includes('Travel heavy')) {
+        coachNotes.push('Create a travel nutrition kit with shelf-stable proteins and hydration tablets.');
+      }
+      if (schedule.includes('Religious timing')) {
+        coachNotes.push('Map fueling windows that respect religious practices while keeping energy stable.');
+      }
+      if (schedule.includes('Early meetings')) {
+        coachNotes.push('Prep high-protein grab-and-go options for early mornings.');
+      }
+      if (schedule.includes('Late training')) {
+        coachNotes.push('Introduce light pre-session snacks and structured post-training recovery meals.');
+      }
+      if (digestion.includes('Occasional bloating') || digestion.includes('IBS / IBD considerations')) {
+        coachNotes.push('Introduce a structured low-FODMAP rotation and track GI feedback.');
+      }
+      if (digestion.includes('Other')) {
+        coachNotes.push('Schedule a GI strategy consult to address bespoke digestion feedback.');
+      }
+      if (supplements.includes('None')) {
+        coachNotes.push('Review foundational supplementation (omega-3, vitamin D, creatine) during onboarding.');
+      }
+      if (supplements.includes('Clinical meds')) {
+        coachNotes.push('Coordinate with medical practitioners before adjusting medication-linked nutrition.');
+      }
+      if (preferences.includes('Plant-forward')) {
+        coachNotes.push('Ensure amino acid density via plant diversity and complementary proteins.');
+      }
+      if (preferences.includes('Other')) {
+        coachNotes.push('Capture bespoke cuisine preferences during kickoff consultation.');
+      }
+      if (avoidList.includes('Other')) {
+        coachNotes.push('Clarify medical or religious exclusions to protect against cross-contamination.');
       }
 
       const formatter = new Intl.NumberFormat('en-US');
       const macroList = `Protein: ${formatter.format(proteinGrams)} g | Carbs: ${formatter.format(carbGrams)} g | Fats: ${formatter.format(fatGrams)} g`;
       const energyLine = `${formatter.format(Math.round(totalCalories))} kcal per day`;
+
+      const formatList = (list, fallback, exclude = []) => {
+        const filtered = list.filter((item) => item && !exclude.includes(item));
+        return filtered.length ? filtered.join(', ') : fallback;
+      };
+
+      const preferenceLine = formatList(preferences, 'Open to varied cuisines', ['Other']);
+      const avoidLine = formatList(avoidList, 'No restrictions noted', []);
+      const scheduleLine = formatList(schedule, 'Schedule is flexible', ['No constraints']);
+      const supplementLine = formatList(supplements, 'None reported', ['None']);
+      const digestionLine = formatList(digestion, 'No GI considerations noted', ['Other']);
 
       nutritionOutput.innerHTML = `
         <div class="output-grid">
@@ -264,7 +348,24 @@ document.addEventListener('DOMContentLoaded', () => {
           <div>
             <h4>Hydration Baseline</h4>
             <p>${hydrationTarget} minimum</p>
+            <p>${hydrationNarrative}</p>
           </div>
+        </div>
+        <div>
+          <h4>Athlete Snapshot</h4>
+          <ul>
+            <li><strong>Body composition:</strong> ${bodyComp}</li>
+            <li><strong>Training focus:</strong> ${trainingFocusLabel} • ${weeklySessions || 'Unspecified'} sessions/week</li>
+            <li><strong>Check-ins:</strong> ${checkins}</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Fueling Preferences</h4>
+          <p><strong>Enjoys:</strong> ${preferenceLine}</p>
+          <p><strong>Avoids:</strong> ${avoidLine}</p>
+          <p><strong>Schedule flags:</strong> ${scheduleLine}</p>
+          <p><strong>Supplements:</strong> ${supplementLine}</p>
+          <p><strong>Digestion:</strong> ${digestionLine}</p>
         </div>
         <div>
           <h4>Practitioner Notes</h4>
@@ -281,19 +382,19 @@ document.addEventListener('DOMContentLoaded', () => {
       event.preventDefault();
       const formData = new FormData(trainingForm);
       const experience = Number(formData.get('experience') || 0);
-      const goalText = (formData.get('goal') || '').toLowerCase();
+      const planKey = formData.get('goal') || 'balanced';
       const days = formData.getAll('days');
       const sessionLength = formData.get('sessionLength');
       const preferredTime = formData.get('times');
       const injuries = formData.get('injuries');
-      const limiters = formData.get('limiters');
+      const limiters = formData.getAll('limiters');
       const support = formData.getAll('support');
-
-      const planKey = goalText.includes('strength') || goalText.includes('power') ? 'strength'
-        : goalText.includes('hypertrophy') || goalText.includes('muscle') ? 'hypertrophy'
-        : goalText.includes('endurance') || goalText.includes('aerobic') || goalText.includes('marathon') ? 'conditioning'
-        : goalText.includes('speed') || goalText.includes('sprint') ? 'speed'
-        : 'balanced';
+      const discipline = formData.get('discipline');
+      const equipment = formData.getAll('equipment');
+      const metrics = formData.getAll('metrics');
+      const tech = formData.getAll('tech');
+      const checkins = formData.get('checkins');
+      const notes = formData.get('notes');
 
       const focusLibrary = {
         strength: ['Max Strength', 'Dynamic Effort', 'Accessory Hypertrophy', 'Aerobic Flush', 'Mobility & Tissue'],
@@ -304,7 +405,8 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 
       const focusPlan = focusLibrary[planKey];
-      const scheduledSessions = days.map((day, index) => ({
+      const selectedDays = days.length ? days : ['Coach to assign'];
+      const scheduledSessions = selectedDays.map((day, index) => ({
         day,
         focus: focusPlan[index % focusPlan.length],
       }));
@@ -313,12 +415,40 @@ document.addEventListener('DOMContentLoaded', () => {
       if (experience >= 5) blockLength = '6-week performance block';
       else if (experience >= 2) blockLength = '5-week strength build';
 
-      const supportNotes = support.length ? support.map((item) => item.charAt(0).upper() + item.slice(1)).join(', ') : 'Core coaching only';
+      const supportNotes = support.length ? support.join(', ') : 'Core coaching only';
 
+      const limiterList = limiters.filter((item) => item && item !== 'None reported');
       const riskNotes = [];
-      if (injuries) riskNotes.push('Flag injuries for regression pathways.');
-      if (limiters) riskNotes.push('Integrate limiter work into warm-ups and auxiliaries.');
+      if (injuries && injuries !== 'None') riskNotes.push(`Adjust loading due to: ${injuries}.`);
+      if (limiterList.length) riskNotes.push(`Program emphasis on ${limiterList.join(', ')}.`);
+      if (!metrics.length) {
+        riskNotes.push('Add baseline performance testing to anchor progression.');
+      }
+      if (metrics.includes('Subjective readiness only')) {
+        riskNotes.push('Layer in objective readiness tracking to validate progress.');
+      }
       if (!riskNotes.length) riskNotes.push('No major constraints reported — progress volume as tolerated.');
+
+      const formatList = (list, fallback, exclude = []) => {
+        const filtered = list.filter((item) => item && !exclude.includes(item));
+        return filtered.length ? filtered.join(', ') : fallback;
+      };
+
+      const equipmentLine = formatList(equipment, 'Standard PodiumX facility access');
+      const metricsLine = formatList(metrics, 'Subjective readiness only');
+      const techLine = formatList(tech, 'Manual feedback only', ['None']);
+      const availabilitySummary = selectedDays.length === 1 && selectedDays[0] === 'Coach to assign'
+        ? 'Coach will place sessions based on block design.'
+        : `${selectedDays.length} days available (${selectedDays.join(', ')})`;
+
+      const disciplineNotes = {
+        strength: 'Powerlifting / Olympic lifting emphasis',
+        functional: 'Hybrid functional fitness demands',
+        combat: 'Combat sport energy systems',
+        endurance: 'Endurance season build',
+        field: 'Field / court sport in-season prep',
+        lifestyle: 'High-performance lifestyle transformation',
+      };
 
       trainingOutput.innerHTML = `
         <div class="output-grid">
@@ -326,6 +456,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <h4>Block Structure</h4>
             <p>${blockLength}</p>
             <p>Session length: ${sessionLength} minutes • Preferred window: ${preferredTime}</p>
+            <p>${availabilitySummary}</p>
           </div>
           <div>
             <h4>Weekly Focus</h4>
@@ -334,11 +465,23 @@ document.addEventListener('DOMContentLoaded', () => {
           <div>
             <h4>Support Services</h4>
             <p>${supportNotes}</p>
+            <h4>Athlete Profile</h4>
+            <ul>
+              <li>${disciplineNotes[discipline] || discipline}</li>
+              <li>Check-ins: ${checkins}</li>
+              <li>Notes: ${notes}</li>
+            </ul>
           </div>
         </div>
         <div>
           <h4>Coach Checklist</h4>
           <ul class="list-check">${riskNotes.map((note) => `<li>${note}</li>`).join('')}</ul>
+        </div>
+        <div>
+          <h4>Readiness Intelligence</h4>
+          <p><strong>Equipment:</strong> ${equipmentLine}</p>
+          <p><strong>Performance metrics:</strong> ${metricsLine}</p>
+          <p><strong>Monitoring tech:</strong> ${techLine}</p>
         </div>
       `;
     });
