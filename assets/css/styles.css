@@ -739,6 +739,20 @@ label {
   font-size: 1.15rem;
 }
 
+.label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.label + .chip-grid,
+label + .chip-grid {
+  margin-top: 0.55rem;
+}
+
 .chip-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));

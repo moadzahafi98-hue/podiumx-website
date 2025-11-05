@@ -132,17 +132,27 @@
               <div class="form-grid">
                 <div>
                   <label for="nutri-name">Full Name</label>
-                  <input id="nutri-name" name="name" type="text" required>
+                  <input id="nutri-name" name="name" type="text" autocomplete="name" required>
                 </div>
                 <div>
                   <label for="nutri-email">Email</label>
-                  <input id="nutri-email" name="email" type="email" required>
+                  <input id="nutri-email" name="email" type="email" autocomplete="email" required>
                 </div>
               </div>
               <div class="form-grid">
                 <div>
-                  <label for="nutri-age">Age</label>
-                  <input id="nutri-age" name="age" type="number" min="12" max="99" required>
+                  <label for="nutri-age">Age Range</label>
+                  <select id="nutri-age" name="age" required>
+                    <option value="">Select</option>
+                    <option value="17">16 – 19 years</option>
+                    <option value="22">20 – 24 years</option>
+                    <option value="27">25 – 29 years</option>
+                    <option value="33">30 – 35 years</option>
+                    <option value="40">36 – 44 years</option>
+                    <option value="48">45 – 52 years</option>
+                    <option value="57">53 – 60 years</option>
+                    <option value="65">61+ years</option>
+                  </select>
                 </div>
                 <div>
                   <label for="nutri-gender">Biological Sex</label>
@@ -156,17 +166,40 @@
               </div>
               <div class="form-grid">
                 <div>
-                  <label for="nutri-height">Height (cm)</label>
-                  <input id="nutri-height" name="height" type="number" min="120" max="220" required>
+                  <label for="nutri-height">Height Bracket</label>
+                  <select id="nutri-height" name="height" required>
+                    <option value="">Select</option>
+                    <option value="155">150 – 159 cm</option>
+                    <option value="165">160 – 169 cm</option>
+                    <option value="175">170 – 179 cm</option>
+                    <option value="185">180 – 189 cm</option>
+                    <option value="195">190 – 199 cm</option>
+                    <option value="205">200 – 209 cm</option>
+                  </select>
                 </div>
                 <div>
-                  <label for="nutri-weight">Weight (kg)</label>
-                  <input id="nutri-weight" name="weight" type="number" min="35" max="180" step="0.1" required>
+                  <label for="nutri-weight">Body Mass</label>
+                  <select id="nutri-weight" name="weight" required>
+                    <option value="">Select</option>
+                    <option value="52">45 – 58 kg</option>
+                    <option value="60">59 – 64 kg</option>
+                    <option value="68">65 – 72 kg</option>
+                    <option value="78">73 – 82 kg</option>
+                    <option value="88">83 – 92 kg</option>
+                    <option value="100">93 – 108 kg</option>
+                    <option value="115">109 – 122 kg</option>
+                    <option value="130">123 kg +</option>
+                  </select>
                 </div>
               </div>
               <div>
-                <label for="nutri-bodyfat">Recent body composition / skinfold data</label>
-                <textarea id="nutri-bodyfat" name="bodyfat" rows="2" placeholder="e.g. 15% body fat (DEXA), waist 78 cm"></textarea>
+                <span class="label">Recent body composition insight</span>
+                <div class="chip-grid">
+                  <label><input type="radio" name="bodyfat" value="DEXA scan within 90 days"> DEXA scan within 90 days</label>
+                  <label><input type="radio" name="bodyfat" value="InBody / bioimpedance within 30 days"> InBody within 30 days</label>
+                  <label><input type="radio" name="bodyfat" value="Skinfold 7-site assessment"> Skinfold 7-site assessment</label>
+                  <label><input type="radio" name="bodyfat" value="No recent assessment"> No recent assessment</label>
+                </div>
               </div>
             </div>
 
@@ -183,57 +216,106 @@
                   </select>
                 </div>
                 <div>
-                  <label for="nutri-activity">Weekly Activity Level</label>
+                  <label for="nutri-activity">Weekly Activity Load</label>
                   <select id="nutri-activity" name="activity" required>
                     <option value="">Select</option>
-                    <option value="sedentary">Sedentary (desk job)</option>
-                    <option value="light">Light (2-3 sessions/week)</option>
-                    <option value="moderate">Moderate (4-5 sessions/week)</option>
-                    <option value="active">High (6+ sessions/week)</option>
-                    <option value="athlete">Professional / two-a-days</option>
+                    <option value="sedentary">Sedentary – mainly desk based</option>
+                    <option value="light">2-3 structured sessions per week</option>
+                    <option value="moderate">4-5 mixed sessions per week</option>
+                    <option value="active">6-8 focused sessions per week</option>
+                    <option value="athlete">Professional / two-a-day training</option>
                   </select>
                 </div>
               </div>
               <div>
-                <label for="nutri-training">Describe typical training week (disciplines, volumes, intensities)</label>
-                <textarea id="nutri-training" name="training" rows="3" required></textarea>
+                <label for="nutri-training-focus">Training focus that best matches your current block</label>
+                <select id="nutri-training-focus" name="trainingFocus" required>
+                  <option value="strength">Strength & power dominant</option>
+                  <option value="mixed">Mixed strength & conditioning</option>
+                  <option value="endurance">Endurance dominant</option>
+                  <option value="skill">Skill / technical with low volume</option>
+                </select>
+              </div>
+              <div>
+                <span class="label">Typical weekly session frequency</span>
+                <div class="chip-grid">
+                  <label><input type="radio" name="weeklySessions" value="3" required> 3 focused sessions</label>
+                  <label><input type="radio" name="weeklySessions" value="4"> 4 focused sessions</label>
+                  <label><input type="radio" name="weeklySessions" value="5"> 5 focused sessions</label>
+                  <label><input type="radio" name="weeklySessions" value="6"> 6+ focused sessions</label>
+                </div>
               </div>
             </div>
 
             <div class="form-section">
               <h3>Dietary Preferences & Constraints</h3>
-              <div class="form-grid">
-                <div>
-                  <label for="nutri-preferences">Preferred cuisines, staples, comfort foods</label>
-                  <textarea id="nutri-preferences" name="preferences" rows="2"></textarea>
+              <div>
+                <span class="label">Preferred cuisines and staples</span>
+                <div class="chip-grid">
+                  <label><input type="checkbox" name="preferences" value="Mediterranean"> Mediterranean</label>
+                  <label><input type="checkbox" name="preferences" value="North African"> North African</label>
+                  <label><input type="checkbox" name="preferences" value="High-protein modern"> High-protein modern</label>
+                  <label><input type="checkbox" name="preferences" value="Plant-forward"> Plant-forward</label>
+                  <label><input type="checkbox" name="preferences" value="Classic comfort"> Classic comfort</label>
+                  <label><input type="checkbox" name="preferences" value="Performance smoothies"> Performance smoothies</label>
+                  <label><input type="checkbox" name="preferences" value="Other"> Other / rotating menus</label>
                 </div>
-                <div>
-                  <label for="nutri-avoid">Foods to avoid (allergies, intolerances, religious constraints)</label>
-                  <textarea id="nutri-avoid" name="avoid" rows="2"></textarea>
+              </div>
+              <div>
+                <span class="label">Foods and ingredients to avoid</span>
+                <div class="chip-grid">
+                  <label><input type="checkbox" name="avoid" value="Dairy-free"> Dairy-free</label>
+                  <label><input type="checkbox" name="avoid" value="Gluten-free"> Gluten-free</label>
+                  <label><input type="checkbox" name="avoid" value="Nut-free"> Nut-free</label>
+                  <label><input type="checkbox" name="avoid" value="Low FODMAP"> Low FODMAP</label>
+                  <label><input type="checkbox" name="avoid" value="Halal"> Halal compliant</label>
+                  <label><input type="checkbox" name="avoid" value="No shellfish"> No shellfish</label>
+                  <label><input type="checkbox" name="avoid" value="Other"> Other medically necessary exclusion</label>
                 </div>
               </div>
               <div class="form-grid">
                 <div>
                   <label for="nutri-meals">Meals per day</label>
                   <select id="nutri-meals" name="meals">
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
+                    <option value="3">3 core meals</option>
+                    <option value="4">4 meals</option>
+                    <option value="5">5 meals</option>
+                    <option value="6">6 touchpoints</option>
                   </select>
                 </div>
                 <div>
-                  <label for="nutri-schedule">Eating schedule constraints (work, prayer, travel)</label>
-                  <textarea id="nutri-schedule" name="schedule" rows="2"></textarea>
+                  <span class="label">Schedule constraints</span>
+                  <div class="chip-grid">
+                    <label><input type="checkbox" name="schedule" value="Early meetings"> Early meeting windows</label>
+                    <label><input type="checkbox" name="schedule" value="Late training"> Late-evening training</label>
+                    <label><input type="checkbox" name="schedule" value="Travel heavy"> Frequent travel</label>
+                    <label><input type="checkbox" name="schedule" value="Religious timing"> Religious timing considerations</label>
+                    <label><input type="checkbox" name="schedule" value="No constraints"> No material constraints</label>
+                  </div>
                 </div>
               </div>
               <div>
-                <label for="nutri-supplements">Current supplements / medications</label>
-                <textarea id="nutri-supplements" name="supplements" rows="2"></textarea>
+                <span class="label">Current supplements & therapeutic support</span>
+                <div class="chip-grid">
+                  <label><input type="checkbox" name="supplements" value="Whey protein"> Whey protein</label>
+                  <label><input type="checkbox" name="supplements" value="Plant protein"> Plant protein</label>
+                  <label><input type="checkbox" name="supplements" value="Creatine"> Creatine</label>
+                  <label><input type="checkbox" name="supplements" value="Omega-3"> Omega-3</label>
+                  <label><input type="checkbox" name="supplements" value="Multivitamin"> Multivitamin</label>
+                  <label><input type="checkbox" name="supplements" value="Clinical meds"> Clinical medication</label>
+                  <label><input type="checkbox" name="supplements" value="None"> None currently</label>
+                </div>
               </div>
               <div>
-                <label for="nutri-digestion">Digestive notes (GI distress, intolerances, IBS triggers)</label>
-                <textarea id="nutri-digestion" name="digestion" rows="2"></textarea>
+                <span class="label">Digestive feedback</span>
+                <div class="chip-grid">
+                  <label><input type="checkbox" name="digestion" value="Excellent"> Excellent digestion</label>
+                  <label><input type="checkbox" name="digestion" value="Occasional bloating"> Occasional bloating</label>
+                  <label><input type="checkbox" name="digestion" value="Sensitive to fiber"> Sensitive to fiber</label>
+                  <label><input type="checkbox" name="digestion" value="Sensitive to lactose"> Sensitive to lactose</label>
+                  <label><input type="checkbox" name="digestion" value="IBS / IBD considerations"> IBS / IBD considerations</label>
+                  <label><input type="checkbox" name="digestion" value="Other"> Other GI flag</label>
+                </div>
               </div>
             </div>
 
@@ -241,21 +323,30 @@
               <h3>Lifestyle & Recovery</h3>
               <div class="form-grid">
                 <div>
-                  <label for="nutri-sleep">Average nightly sleep (hours)</label>
-                  <input id="nutri-sleep" name="sleep" type="number" min="3" max="12" step="0.1">
+                  <label for="nutri-sleep">Average nightly sleep</label>
+                  <select id="nutri-sleep" name="sleep">
+                    <option value="8">8-9 hours</option>
+                    <option value="7">7-7.5 hours</option>
+                    <option value="6">6-6.5 hours</option>
+                    <option value="5">Less than 6 hours</option>
+                  </select>
                 </div>
                 <div>
-                  <label for="nutri-stress">Stress level</label>
-                  <select id="nutri-stress" name="stress">
-                    <option value="low">Low</option>
-                    <option value="moderate">Moderate</option>
-                    <option value="high">High</option>
-                  </select>
+                  <span class="label">Perceived stress state</span>
+                  <div class="chip-grid">
+                    <label><input type="radio" name="stress" value="low" checked> Low / stable</label>
+                    <label><input type="radio" name="stress" value="moderate"> Moderate</label>
+                    <label><input type="radio" name="stress" value="high"> Elevated / chronic</label>
+                  </div>
                 </div>
               </div>
               <div>
-                <label for="nutri-hydration">Hydration habits</label>
-                <textarea id="nutri-hydration" name="hydration" rows="2"></textarea>
+                <span class="label">Hydration habits</span>
+                <div class="chip-grid">
+                  <label><input type="radio" name="hydration" value="2l" checked> 2 L daily with electrolytes weekly</label>
+                  <label><input type="radio" name="hydration" value="3l"> 3+ L daily with electrolytes</label>
+                  <label><input type="radio" name="hydration" value="variable"> Variable intake – needs structure</label>
+                </div>
               </div>
               <div>
                 <label for="nutri-checkins">Preferred check-in cadence with nutritionist</label>
@@ -292,26 +383,46 @@
               <div class="form-grid">
                 <div>
                   <label for="train-name">Full Name</label>
-                  <input id="train-name" name="name" type="text" required>
+                  <input id="train-name" name="name" type="text" autocomplete="name" required>
                 </div>
                 <div>
                   <label for="train-email">Email</label>
-                  <input id="train-email" name="email" type="email" required>
+                  <input id="train-email" name="email" type="email" autocomplete="email" required>
                 </div>
               </div>
               <div class="form-grid">
                 <div>
-                  <label for="train-experience">Training age (years lifting / competing)</label>
-                  <input id="train-experience" name="experience" type="number" min="0" max="30" step="0.5" required>
+                  <label for="train-experience">Training age</label>
+                  <select id="train-experience" name="experience" required>
+                    <option value="0">New to structured training</option>
+                    <option value="1.5">1-2 years consistent</option>
+                    <option value="3">3-4 years consistent</option>
+                    <option value="6">5-7 years competitive</option>
+                    <option value="10">8-12 years competitive</option>
+                    <option value="16">13+ years elite</option>
+                  </select>
                 </div>
                 <div>
                   <label for="train-discipline">Primary sport / discipline</label>
-                  <input id="train-discipline" name="discipline" type="text" required>
+                  <select id="train-discipline" name="discipline" required>
+                    <option value="strength">Strength / power sports</option>
+                    <option value="functional">Functional fitness / CrossFit</option>
+                    <option value="combat">Combat sports</option>
+                    <option value="endurance">Endurance sport</option>
+                    <option value="field">Field or court sport</option>
+                    <option value="lifestyle">Lifestyle transformation</option>
+                  </select>
                 </div>
               </div>
               <div>
-                <label for="train-goal">Key goals for the next 12 weeks</label>
-                <textarea id="train-goal" name="goal" rows="3" required></textarea>
+                <span class="label">12-week priority</span>
+                <div class="chip-grid">
+                  <label><input type="radio" name="goal" value="strength" required> Max strength / power output</label>
+                  <label><input type="radio" name="goal" value="hypertrophy"> Hypertrophy & physique</label>
+                  <label><input type="radio" name="goal" value="conditioning"> Aerobic & engine development</label>
+                  <label><input type="radio" name="goal" value="speed"> Speed & agility</label>
+                  <label><input type="radio" name="goal" value="balanced"> Comprehensive performance</label>
+                </div>
               </div>
             </div>
 
@@ -349,8 +460,15 @@
                 </div>
               </div>
               <div>
-                <label for="train-equipment">List available equipment (gym access, home setup, recovery tools)</label>
-                <textarea id="train-equipment" name="equipment" rows="2"></textarea>
+                <span class="label">Facilities & equipment you can access</span>
+                <div class="chip-grid">
+                  <label><input type="checkbox" name="equipment" value="Full performance gym"> Full performance gym</label>
+                  <label><input type="checkbox" name="equipment" value="Home strength setup"> Home strength setup</label>
+                  <label><input type="checkbox" name="equipment" value="Track / field"> Track or field</label>
+                  <label><input type="checkbox" name="equipment" value="Conditioning machines"> Conditioning machines</label>
+                  <label><input type="checkbox" name="equipment" value="Recovery tools"> Recovery tools</label>
+                  <label><input type="checkbox" name="equipment" value="Minimal equipment"> Minimal equipment</label>
+                </div>
               </div>
             </div>
 
@@ -358,28 +476,44 @@
               <h3>Readiness & Constraints</h3>
               <div class="form-grid">
                 <div>
-                  <label for="train-injuries">Current or past injuries</label>
-                  <textarea id="train-injuries" name="injuries" rows="2"></textarea>
+                  <span class="label">Current injury status</span>
+                  <div class="chip-grid">
+                    <label><input type="radio" name="injuries" value="None" checked> No current injuries</label>
+                    <label><input type="radio" name="injuries" value="Managing minor tweaks"> Managing minor tweaks</label>
+                    <label><input type="radio" name="injuries" value="Returning from major injury"> Returning from major injury</label>
+                  </div>
                 </div>
                 <div>
-                  <label for="train-metrics">Recent performance metrics (1RM, 5km, VO₂ max, etc.)</label>
-                  <textarea id="train-metrics" name="metrics" rows="2"></textarea>
+                  <span class="label">Current performance benchmarking</span>
+                  <div class="chip-grid">
+                    <label><input type="checkbox" name="metrics" value="Strength PR tracking"> Strength PR tracking</label>
+                    <label><input type="checkbox" name="metrics" value="Endurance time trials"> Endurance time trials</label>
+                    <label><input type="checkbox" name="metrics" value="Power / jump testing"> Power & jump testing</label>
+                    <label><input type="checkbox" name="metrics" value="Skill execution scores"> Skill execution scores</label>
+                    <label><input type="checkbox" name="metrics" value="Subjective readiness only"> Subjective readiness only</label>
+                  </div>
                 </div>
               </div>
               <div>
-                <label for="train-limiters">Perceived limiters (mobility, energy systems, technical)</label>
-                <textarea id="train-limiters" name="limiters" rows="2"></textarea>
+                <span class="label">Primary limiters</span>
+                <div class="chip-grid">
+                  <label><input type="checkbox" name="limiters" value="Mobility limitations"> Mobility limitations</label>
+                  <label><input type="checkbox" name="limiters" value="Aerobic capacity"> Aerobic capacity</label>
+                  <label><input type="checkbox" name="limiters" value="Anaerobic repeatability"> Anaerobic repeatability</label>
+                  <label><input type="checkbox" name="limiters" value="Technical execution"> Technical execution</label>
+                  <label><input type="checkbox" name="limiters" value="Lifestyle / recovery"> Lifestyle / recovery</label>
+                  <label><input type="checkbox" name="limiters" value="None reported"> No major limiters</label>
+                </div>
               </div>
               <div>
-                <label for="train-support">Support services interested in</label>
-                <select id="train-support" name="support" multiple size="4">
-                  <option value="strength">Strength & power blocks</option>
-                  <option value="conditioning">Conditioning & engine work</option>
-                  <option value="mobility">Mobility & tissue care</option>
-                  <option value="recovery">Recovery modalities</option>
-                  <option value="nutrition">Integrated nutrition coaching</option>
-                </select>
-                <small>Hold Ctrl (Windows) or Command (macOS) to select multiple options.</small>
+                <span class="label">Support services you want dialed in</span>
+                <div class="chip-grid">
+                  <label><input type="checkbox" name="support" value="Strength"> Strength & power blocks</label>
+                  <label><input type="checkbox" name="support" value="Conditioning"> Conditioning & engine work</label>
+                  <label><input type="checkbox" name="support" value="Mobility"> Mobility & tissue care</label>
+                  <label><input type="checkbox" name="support" value="Recovery"> Recovery modalities</label>
+                  <label><input type="checkbox" name="support" value="Nutrition"> Integrated nutrition coaching</label>
+                </div>
               </div>
             </div>
 
@@ -387,8 +521,15 @@
               <h3>Monitoring</h3>
               <div class="form-grid">
                 <div>
-                  <label for="train-tech">Tracking technology in use</label>
-                  <textarea id="train-tech" name="tech" rows="2" placeholder="e.g. Whoop, Garmin, force plates"></textarea>
+                  <span class="label">Tech + monitoring in play</span>
+                  <div class="chip-grid">
+                    <label><input type="checkbox" name="tech" value="Whoop / Oura"> Whoop / Oura</label>
+                    <label><input type="checkbox" name="tech" value="Garmin / Polar"> Garmin / Polar</label>
+                    <label><input type="checkbox" name="tech" value="Force plates"> Force plates / velocity tracking</label>
+                    <label><input type="checkbox" name="tech" value="Heart rate strap"> Heart rate strap</label>
+                    <label><input type="checkbox" name="tech" value="Video review"> Video review workflows</label>
+                    <label><input type="checkbox" name="tech" value="None"> None currently</label>
+                  </div>
                 </div>
                 <div>
                   <label for="train-checkins">Preferred coaching check-in cadence</label>
@@ -400,8 +541,13 @@
                 </div>
               </div>
               <div>
-                <label for="train-notes">Anything else we should know?</label>
-                <textarea id="train-notes" name="notes" rows="2"></textarea>
+                <span class="label">Anything else we should know?</span>
+                <div class="chip-grid">
+                  <label><input type="radio" name="notes" value="All set" checked> No additional notes</label>
+                  <label><input type="radio" name="notes" value="Need remote programming"> Need remote programming</label>
+                  <label><input type="radio" name="notes" value="Need comp prep timeline"> Need comp prep timeline</label>
+                  <label><input type="radio" name="notes" value="Travel heavy"> Heavy travel season coming up</label>
+                </div>
               </div>
             </div>
 
