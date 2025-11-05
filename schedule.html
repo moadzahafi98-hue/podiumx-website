@@ -19,6 +19,7 @@
           <li><a href="index.html" data-nav-link data-page="home">Home</a></li>
           <li><a href="about.html" data-nav-link data-page="about">About</a></li>
           <li><a href="programs.html" data-nav-link data-page="programs">Programs</a></li>
+          <li><a href="ai-suite.html" data-nav-link data-page="ai-suite">AI Suite</a></li>
           <li><a href="schedule.html" data-nav-link data-page="schedule">Schedule</a></li>
           <li><a href="facility.html" data-nav-link data-page="facility">Facility</a></li>
           <li><a href="pricing.html" data-nav-link data-page="pricing">Pricing</a></li>
@@ -38,6 +39,7 @@
         <li><a href="index.html" data-page="home">Home</a></li>
         <li><a href="about.html" data-page="about">About</a></li>
         <li><a href="programs.html" data-page="programs">Programs</a></li>
+        <li><a href="ai-suite.html" data-page="ai-suite">AI Suite</a></li>
         <li><a href="schedule.html" data-page="schedule">Schedule</a></li>
         <li><a href="facility.html" data-page="facility">Facility</a></li>
         <li><a href="pricing.html" data-page="pricing">Pricing</a></li>
@@ -102,6 +104,34 @@
               </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="calendar" class="calendar-section">
+      <div class="container">
+        <div class="section-header">
+          <span>Member Calendar</span>
+          <h2>Reserve Pods in Real Time</h2>
+          <p class="section-description">Members can claim a strength pod, conditioning track, or recovery block instantly. Remaining spots update as soon as a reservation is made.</p>
+        </div>
+        <div class="calendar-layout">
+          <div class="calendar-controls">
+            <h3>Availability Filters</h3>
+            <label for="calendar-focus">Session focus</label>
+            <select id="calendar-focus" data-calendar-filter>
+              <option value="all">All sessions</option>
+              <option value="strength">Strength Pod</option>
+              <option value="conditioning">Conditioning</option>
+              <option value="recovery">Recovery</option>
+              <option value="evaluation">Evaluations</option>
+            </select>
+            <p class="calendar-note">Tap a slot to reserve. Once reserved, it will be held in your member locker for 30 minutes.</p>
+            <div class="reservation-summary" data-calendar-summary>
+              <strong>No session reserved yet.</strong>
+            </div>
+          </div>
+          <div class="calendar-grid" data-session-calendar aria-live="polite"></div>
         </div>
       </div>
     </section>
