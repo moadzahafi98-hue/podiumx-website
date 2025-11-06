@@ -1,0 +1,269 @@
+{
+  "nav": {
+    "start": "Commencer",
+    "next": "Suivant",
+    "back": "Retour",
+    "submit": "Envoyer",
+    "saveDraft": "Enregistrer le brouillon",
+    "select": "Choisir une option"
+  },
+  "hero": {
+    "title": "Questionnaire ultra-détaillé sur la nutrition et le mode de vie",
+    "description": "Remplissez les sections ci-dessous pour que nous puissions concevoir une stratégie nutritionnelle sur mesure."
+  },
+  "sections": {
+    "s1": "Informations personnelles",
+    "s2": "Mode de vie et routine quotidienne",
+    "s3": "Entraînement et activité physique",
+    "s4": "Habitudes alimentaires",
+    "s5": "Préférences alimentaires et macronutriments",
+    "s6": "Informations médicales",
+    "s7": "Composition corporelle et objectifs",
+    "s8": "Motivation et défis",
+    "s9": "Préférences du plan nutritionnel",
+    "s10": "Notes supplémentaires et consentement"
+  },
+  "fields": {
+    "fullName": "Nom complet",
+    "preferredName": "Prénom utilisé",
+    "email": "Adresse e-mail",
+    "phone": "Numéro de téléphone",
+    "dobBracket": "Date de naissance (tranche d'âge)",
+    "genderIdentity": "Identité de genre",
+    "pronouns": "Pronoms",
+    "occupation": "Profession",
+    "workSchedule": "Organisation du travail",
+    "country": "Pays",
+    "city": "Ville",
+    "timeZone": "Fuseau horaire",
+    "height": "Taille",
+    "weight": "Poids actuel",
+    "goalWeight": "Poids cible",
+    "unitToggle": "Unités de mesure préférées",
+    "household": "Personnes au foyer",
+    "lifestyleNotes": "Autres précisions sur votre routine",
+    "wakeTime": "Heure habituelle de lever",
+    "bedTime": "Heure habituelle de coucher",
+    "sleepHours": "Heures de sommeil moyennes par nuit",
+    "sleepQuality": "Comment évaluez-vous la qualité de votre sommeil ?",
+    "workActivity": "Niveau d'activité durant le travail",
+    "stressLevel": "Niveau de stress global",
+    "stressSources": "Principales sources de stress",
+    "relaxation": "Qu'est-ce qui vous aide à vous détendre ?",
+    "trainingFrequency": "Nombre de séances planifiées par semaine",
+    "trainingTypes": "Types d'entraînement préférés",
+    "stepsPerDay": "Nombre moyen de pas par jour",
+    "activeMinutes": "Minutes hebdomadaires d'activité modérée/vigoureuse",
+    "injuries": "Blessures ou limitations de mouvement",
+    "sportGoals": "Objectifs sportifs principaux",
+    "mealsPerDay": "Repas par jour",
+    "snacksPerDay": "Collations par jour",
+    "mealTiming": "Répartition habituelle des repas",
+    "hydration": "Apport quotidien en eau",
+    "caffeine": "Consommation de caféine",
+    "alcohol": "Consommation d'alcool",
+    "digestion": "Notes sur la digestion (ballonnements, transit, etc.)",
+    "cravings": "Envies fréquentes",
+    "foodAllergies": "Avez-vous des allergies ou intolérances alimentaires ?",
+    "allergyItems": "Listez les aliments concernés",
+    "proteinSources": "Sources de protéines préférées",
+    "carbSources": "Sources de glucides préférées",
+    "fatSources": "Sources de lipides préférées",
+    "macroPreference": "Équilibre des macronutriments souhaité",
+    "macroTargets": "Cibles quotidiennes en macronutriments (grammes)",
+    "proteinTarget": "Protéines (g)",
+    "carbTarget": "Glucides (g)",
+    "fatTarget": "Lipides (g)",
+    "supplements": "Compléments actuels",
+    "medicalConditions": "Antécédents médicaux ou diagnostics",
+    "medications": "Médicaments en cours",
+    "digestiveConditions": "Troubles digestifs",
+    "sleepConditions": "Troubles du sommeil",
+    "injuryHistory": "Antécédents de blessures ou chirurgies",
+    "familyHistory": "Antécédents familiaux pertinents",
+    "labTesting": "Analyses ou examens récents",
+    "goals": "Objectifs corporels principaux",
+    "secondaryGoals": "Objectifs secondaires",
+    "timeline": "Délai idéal pour les résultats",
+    "progressMeasures": "Comment suivez-vous vos progrès ?",
+    "pastAttempts": "Tentatives nutritionnelles précédentes",
+    "biggestMotivation": "Quelle est votre plus grande motivation ?",
+    "biggestChallenges": "Quels obstacles vous freinent ?",
+    "supportSystem": "Décrivez votre entourage de soutien",
+    "coachingStyle": "Style de coaching préféré",
+    "mealPrep": "Temps disponible pour la préparation des repas",
+    "recipePreferences": "Préférences culinaires",
+    "budget": "Budget courses",
+    "checkInFrequency": "Fréquence de suivi souhaitée",
+    "communication": "Mode de communication préféré",
+    "additionalNotes": "Notes supplémentaires",
+    "consent": "Je confirme l'exactitude des informations fournies et j'autorise leur utilisation pour la planification nutritionnelle.",
+    "honeypot": "Laissez ce champ vide"
+  },
+  "helperTexts": {
+    "phone": "Incluez l'indicatif international si nécessaire.",
+    "timeZone": "Exemple : GMT+1, EST, CET.",
+    "units": "Basculez entre métrique et impérial. Nous conserverons les deux.",
+    "sleepHours": "Arrondissez à la demi-heure.",
+    "macroTargets": "Laissez vide si vous n'êtes pas sûr·e. Fournissez les trois valeurs sinon.",
+    "allergy": "Indiquez les aliments, ingrédients ou intolérances.",
+    "hydration": "Incluez l'eau, les tisanes, etc.",
+    "consent": "Requis pour envoyer le questionnaire."
+  },
+  "options": {
+    "gender": [
+      "Femme",
+      "Homme",
+      "Non binaire",
+      "Préférer ne pas répondre",
+      "Autre"
+    ],
+    "workSchedule": [
+      "Horaires de jour",
+      "Travail en équipes",
+      "Horaires rotatifs",
+      "Indépendant / variable"
+    ],
+    "workActivity": [
+      "Principalement assis",
+      "Mixte assis/debout",
+      "Debout la plupart du temps",
+      "Physiquement exigeant"
+    ],
+    "stressLevel": [
+      "Faible",
+      "Modéré",
+      "Élevé",
+      "Très élevé"
+    ],
+    "trainingTypes": [
+      "Musculation",
+      "Endurance / course",
+      "Cyclisme",
+      "HIIT",
+      "CrossFit",
+      "Sports collectifs",
+      "Sports de combat",
+      "Esprit-corps (yoga, Pilates)",
+      "Mobilité / flexibilité"
+    ],
+    "macroPreference": {
+      "highProtein": "Accent sur les protéines",
+      "balanced": "Macronutriments équilibrés",
+      "lowCarb": "Faible en glucides",
+      "moderateFat": "Modéré en lipides",
+      "performance": "Périodisation orientée performance",
+      "unsure": "Je ne sais pas encore"
+    },
+    "goals": [
+      "Perte de graisse",
+      "Prise de muscle",
+      "Améliorer la performance",
+      "Améliorer les marqueurs de santé",
+      "Améliorer la relation à l'alimentation",
+      "Recomposition corporelle"
+    ],
+    "timeline": [
+      "4-8 semaines",
+      "3 mois",
+      "6 mois",
+      "12+ mois"
+    ],
+    "checkIns": [
+      "Hebdomadaire",
+      "Toutes les 2 semaines",
+      "Mensuel"
+    ],
+    "communication": [
+      "E-mail",
+      "Messagerie",
+      "Visioconférence",
+      "Appel téléphonique"
+    ],
+    "proteinSources": [
+      "Poulet",
+      "Dinde",
+      "Poisson",
+      "Fruits de mer",
+      "Œufs",
+      "Yaourt grec",
+      "Fromage cottage",
+      "Bœuf",
+      "Protéines végétales",
+      "Poudre protéinée"
+    ],
+    "carbSources": [
+      "Flocons d'avoine",
+      "Riz",
+      "Quinoa",
+      "Pommes de terre",
+      "Patates douces",
+      "Légumineuses",
+      "Fruits",
+      "Pain complet",
+      "Pâtes",
+      "Tortillas"
+    ],
+    "fatSources": [
+      "Avocat",
+      "Huile d'olive",
+      "Fruits à coque",
+      "Graines",
+      "Beurre de noix",
+      "Poissons gras",
+      "Fromage",
+      "Œufs entiers",
+      "Noix de coco",
+      "Chocolat noir"
+    ],
+    "secondaryGoals": [
+      "Perte de graisse",
+      "Prise de muscle",
+      "Améliorer la performance",
+      "Améliorer les marqueurs de santé",
+      "Améliorer la relation à l'alimentation",
+      "Recomposition corporelle"
+    ]
+  },
+  "validation": {
+    "required": "Ce champ est obligatoire.",
+    "email": "Saisissez une adresse e-mail valide.",
+    "phone": "Indiquez un numéro valide.",
+    "range": "La valeur dépasse les limites autorisées.",
+    "macroAllOrNone": "Fournissez les cibles protéines, glucides et lipides ensemble.",
+    "macroRange": "Les cibles doivent être comprises entre 10 et 600 g.",
+    "allergyItems": "Merci de renseigner au moins un aliment.",
+    "atLeastOneGoal": "Sélectionnez au moins un objectif.",
+    "consent": "Le consentement est requis.",
+    "duration": "Merci de consacrer au moins 15 secondes avant l'envoi.",
+    "honeypot": "Spam détecté."
+  },
+  "units": {
+    "metric": "Métrique (kg, cm)",
+    "imperial": "Impérial (lb, in)"
+  },
+  "progress": {
+    "title": "Progression",
+    "completed": "{{count}} sur {{total}} questions obligatoires terminées"
+  },
+  "draft": {
+    "saved": "Brouillon enregistré",
+    "saving": "Enregistrement..."
+  },
+  "success": {
+    "title": "Merci !",
+    "desc": "Nous avons bien reçu votre formulaire. Votre identifiant est {{id}}.",
+    "print": "Imprimer la confirmation",
+    "download": "Télécharger le PDF",
+    "back": "Retour à l'accueil"
+  },
+  "summary": {
+    "title": "Résumé de la soumission",
+    "subtitle": "Conservez ce document.",
+    "submitted": "Envoyé le {{date}}"
+  },
+  "pdf": {
+    "title": "Soumission du questionnaire nutritionnel",
+    "footer": "Généré par PodiumX Nutrition"
+  }
+}
