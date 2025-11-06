@@ -489,6 +489,12 @@ label {
   color: var(--text-muted);
 }
 
+.form-feedback {
+  min-height: 1.5rem;
+  margin-top: 1rem;
+  color: var(--text-muted);
+}
+
 .alert {
   margin-top: 1.5rem;
   padding: 1rem 1.25rem;
@@ -972,6 +978,10 @@ footer {
   text-align: center;
   color: var(--text-muted);
   font-size: 0.85rem;
+}
+
+.footer-bottom p {
+  margin: 0;
 }
 
 .social-links {

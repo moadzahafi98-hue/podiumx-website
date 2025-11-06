@@ -66,11 +66,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!email) return;
 
       newsletterFeedback.textContent = 'Subscribing...';
+      newsletterFeedback.classList.add('alert');
       setTimeout(() => {
         newsletterFeedback.textContent = 'Welcome to the PodiumX performance community!';
         newsletterForm.reset();
         setTimeout(() => {
           newsletterFeedback.textContent = '';
+          newsletterFeedback.classList.remove('alert');
         }, 4000);
       }, 800);
     });
@@ -491,6 +493,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const calendarFilter = document.querySelector('[data-calendar-filter]');
   const calendarSummary = document.querySelector('[data-calendar-summary]');
   if (calendarContainer && calendarFilter && calendarSummary) {
+    const defaultSummary = calendarSummary.innerHTML;
     const sessionMatrix = [
       { focus: 'strength', label: 'Strength Pod', start: '06:30', end: '07:30', capacity: 8 },
       { focus: 'conditioning', label: 'Conditioning Track', start: '12:15', end: '13:15', capacity: 10 },
@@ -498,6 +501,8 @@ document.addEventListener('DOMContentLoaded', () => {
       { focus: 'recovery', label: 'Recovery Suite', start: '19:30', end: '20:15', capacity: 6 },
       { focus: 'evaluation', label: 'Performance Evaluation', start: '10:00', end: '10:45', capacity: 3 },
     ];
+
+    const formatSpots = (value) => (value <= 0 ? 'Fully booked' : `${value} spot${value === 1 ? '' : 's'} remaining`);
 
     const buildCalendar = (filterFocus = 'all') => {
       calendarContainer.innerHTML = '';
@@ -530,25 +535,32 @@ document.addEventListener('DOMContentLoaded', () => {
           const timing = document.createElement('div');
           timing.textContent = `${session.start} – ${session.end}`;
           const spots = document.createElement('div');
-          spots.textContent = `${session.capacity} spots remaining`;
+          const baseCapacity = Number.isNaN(Number(session.capacity)) ? 0 : Number(session.capacity);
+          let remaining = baseCapacity;
+          spots.textContent = formatSpots(remaining);
           const action = document.createElement('button');
           action.type = 'button';
           action.textContent = 'Reserve';
 
           action.addEventListener('click', () => {
-            if (session.capacity <= 0) return;
-            session.capacity -= 1;
-            spots.textContent = `${session.capacity} spots remaining`;
-            if (session.capacity <= 0) {
+            if (remaining <= 0) return;
+            remaining -= 1;
+            spots.textContent = formatSpots(remaining);
+            if (remaining <= 0) {
               action.disabled = true;
+              action.setAttribute('aria-disabled', 'true');
               slot.classList.add('full');
             }
             calendarSummary.innerHTML = `<strong>Reserved:</strong> ${session.label} on ${dayName} at ${session.start}. Please confirm in the member portal within 30 minutes.`;
           });
 
-          if (session.capacity <= 0) {
+          if (remaining <= 0) {
             action.disabled = true;
+            action.setAttribute('aria-disabled', 'true');
             slot.classList.add('full');
+          } else {
+            action.disabled = false;
+            action.setAttribute('aria-disabled', 'false');
           }
 
           slot.appendChild(label);
@@ -565,6 +577,7 @@ document.addEventListener('DOMContentLoaded', () => {
     buildCalendar();
 
     calendarFilter.addEventListener('change', () => {
+      calendarSummary.innerHTML = defaultSummary;
       buildCalendar(calendarFilter.value);
     });
   }

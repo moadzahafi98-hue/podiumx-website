@@ -127,7 +127,7 @@
               <option value="evaluation">Evaluations</option>
             </select>
             <p class="calendar-note">Tap a slot to reserve. Once reserved, it will be held in your member locker for 30 minutes.</p>
-            <div class="reservation-summary" data-calendar-summary>
+            <div class="reservation-summary" data-calendar-summary role="status" aria-live="polite">
               <strong>No session reserved yet.</strong>
             </div>
           </div>
@@ -180,7 +180,7 @@
             </div>
             <button class="btn-primary" type="submit" style="margin-top: 1.5rem;">Submit Booking Request</button>
           </form>
-          <div style="min-height: 2rem;"></div>
+          <p class="form-feedback" role="status" aria-live="polite"></p>
         </div>
         <div class="card">
           <h2>Need Coaching Guidance?</h2>
@@ -232,7 +232,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        © 2025 PodiumX Performance Center. All rights reserved.
+        <p>&copy; <span data-year></span> PodiumX Performance Center. All rights reserved.</p>
       </div>
     </div>
   </footer>
