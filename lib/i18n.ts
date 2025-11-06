@@ -1,4 +1,4 @@
-import { createInstance, i18n } from "i18next";
+import { createInstance } from "i18next";
 import resourcesToBackend from "i18next-resources-to-backend";
 import { initReactI18next } from "react-i18next/initReactI18next";
 import { defaultLanguage, languages, type Language } from "./i18n-config";
@@ -24,13 +24,21 @@ export const getFixedT = async (lng: Language, ns?: string | string[]) => {
   return instance.getFixedT(lng, Array.isArray(ns) ? ns[0] : ns);
 };
 
-let clientInstance: i18n | null = null;
+export const createBrowserI18n = (lng: Language, resources: Record<string, any>) => {
+  const instance = createInstance();
 
-export const getClientI18n = async (lng: Language) => {
-  if (!clientInstance) {
-    clientInstance = await initI18next(lng);
-  } else {
-    await clientInstance.changeLanguage(lng);
-  }
-  return clientInstance;
+  instance.use(initReactI18next).init({
+    lng,
+    fallbackLng: defaultLanguage,
+    supportedLngs: languages,
+    defaultNS: "common",
+    ns: Object.keys(resources),
+    resources: {
+      [lng]: resources,
+    },
+    interpolation: { escapeValue: false },
+    initImmediate: false,
+  });
+
+  return instance;
 };
