@@ -1,0 +1,269 @@
+{
+  "nav": {
+    "start": "Start",
+    "next": "Next",
+    "back": "Back",
+    "submit": "Submit",
+    "saveDraft": "Save draft",
+    "select": "Select an option"
+  },
+  "hero": {
+    "title": "Ultra-Detailed Nutrition & Lifestyle Questionnaire",
+    "description": "Complete the sections below so we can craft a nutrition strategy tailored to you."
+  },
+  "sections": {
+    "s1": "Personal Information",
+    "s2": "Lifestyle & Daily Routine",
+    "s3": "Training & Physical Activity",
+    "s4": "Eating Habits",
+    "s5": "Dietary Preferences & Macronutrient Habits",
+    "s6": "Health & Medical Information",
+    "s7": "Body Composition & Progress Goals",
+    "s8": "Motivation & Challenges",
+    "s9": "Preferences for Nutrition Plan",
+    "s10": "Additional Notes & Consent"
+  },
+  "fields": {
+    "fullName": "Full Name",
+    "preferredName": "Preferred name",
+    "email": "Email address",
+    "phone": "Phone number",
+    "dobBracket": "Date of Birth (age range)",
+    "genderIdentity": "Gender identity",
+    "pronouns": "Pronouns",
+    "occupation": "Occupation",
+    "workSchedule": "Typical work schedule",
+    "country": "Country",
+    "city": "City",
+    "timeZone": "Time zone",
+    "height": "Height",
+    "weight": "Current Weight",
+    "goalWeight": "Goal Weight",
+    "unitToggle": "Preferred measurement units",
+    "household": "Household members",
+    "lifestyleNotes": "Anything else about your daily routine?",
+    "wakeTime": "Usual wake time",
+    "bedTime": "Usual bedtime",
+    "sleepHours": "Average sleep hours per night",
+    "sleepQuality": "How would you rate your sleep quality?",
+    "workActivity": "How active is your workday?",
+    "stressLevel": "Overall stress level",
+    "stressSources": "Main sources of stress",
+    "relaxation": "What helps you relax?",
+    "trainingFrequency": "How many planned training sessions per week?",
+    "trainingTypes": "Preferred training types",
+    "stepsPerDay": "Average steps per day",
+    "activeMinutes": "Average weekly minutes of moderate/vigorous activity",
+    "injuries": "Injuries or movement limitations",
+    "sportGoals": "Primary training or sport goals",
+    "mealsPerDay": "Meals per day",
+    "snacksPerDay": "Snacks per day",
+    "mealTiming": "Typical meal timing",
+    "hydration": "Daily water intake",
+    "caffeine": "Caffeine use",
+    "alcohol": "Alcohol use",
+    "digestion": "Digestion notes (bloating, bowel movements, etc.)",
+    "cravings": "Common cravings",
+    "foodAllergies": "Do you have any food allergies or intolerances?",
+    "allergyItems": "List allergy or intolerance items",
+    "proteinSources": "Preferred protein sources",
+    "carbSources": "Preferred carbohydrate sources",
+    "fatSources": "Preferred fat sources",
+    "macroPreference": "Preferred macronutrient balance",
+    "macroTargets": "Target daily macros (grams)",
+    "proteinTarget": "Protein (g)",
+    "carbTarget": "Carbohydrates (g)",
+    "fatTarget": "Fat (g)",
+    "supplements": "Current supplements",
+    "medicalConditions": "Medical conditions or diagnoses",
+    "medications": "Current medications",
+    "digestiveConditions": "Digestive conditions",
+    "sleepConditions": "Sleep-related conditions",
+    "injuryHistory": "Injury or surgery history",
+    "familyHistory": "Relevant family health history",
+    "labTesting": "Recent lab work or testing",
+    "goals": "Primary body composition goals",
+    "secondaryGoals": "Secondary goals",
+    "timeline": "Ideal timeline for results",
+    "progressMeasures": "How do you measure progress?",
+    "pastAttempts": "Previous nutrition or diet attempts",
+    "biggestMotivation": "What motivates you most?",
+    "biggestChallenges": "What obstacles have held you back?",
+    "supportSystem": "Describe your support system",
+    "coachingStyle": "Preferred coaching style",
+    "mealPrep": "How much time can you dedicate to meal prep?",
+    "recipePreferences": "Recipe or cuisine preferences",
+    "budget": "Grocery budget considerations",
+    "checkInFrequency": "Preferred check-in frequency",
+    "communication": "Preferred communication method",
+    "additionalNotes": "Additional notes",
+    "consent": "I confirm the information provided is accurate and consent to its use for nutrition planning.",
+    "honeypot": "Leave this field blank"
+  },
+  "helperTexts": {
+    "phone": "Include country code if outside your home country.",
+    "timeZone": "Example: GMT+1, EST, CET.",
+    "units": "Switch between metric and imperial. We'll store both.",
+    "sleepHours": "Round to the nearest half hour.",
+    "macroTargets": "Leave blank if unsure. Provide all three if entering targets.",
+    "allergy": "List any foods, ingredients, or intolerances.",
+    "hydration": "Include water, herbal tea, etc.",
+    "consent": "Required to submit the questionnaire."
+  },
+  "options": {
+    "gender": [
+      "Female",
+      "Male",
+      "Non-binary",
+      "Prefer not to say",
+      "Self-described"
+    ],
+    "workSchedule": [
+      "Standard daytime",
+      "Shift work",
+      "Rotating",
+      "Self-employed / variable"
+    ],
+    "workActivity": [
+      "Mostly seated",
+      "Mix of sitting and standing",
+      "On feet most of the day",
+      "Physically demanding"
+    ],
+    "stressLevel": [
+      "Low",
+      "Moderate",
+      "High",
+      "Very high"
+    ],
+    "trainingTypes": [
+      "Strength training",
+      "Endurance/Running",
+      "Cycling",
+      "HIIT",
+      "CrossFit",
+      "Team sports",
+      "Combat sports",
+      "Mind-body (yoga, Pilates)",
+      "Mobility/Flexibility"
+    ],
+    "macroPreference": {
+      "highProtein": "Higher protein focus",
+      "balanced": "Balanced macros",
+      "lowCarb": "Lower carbohydrate",
+      "moderateFat": "Moderate fat emphasis",
+      "performance": "Performance periodization",
+      "unsure": "Not sure yet"
+    },
+    "goals": [
+      "Fat loss",
+      "Muscle gain",
+      "Improve performance",
+      "Improve health markers",
+      "Improve relationship with food",
+      "Body recomposition"
+    ],
+    "timeline": [
+      "4-8 weeks",
+      "3 months",
+      "6 months",
+      "12+ months"
+    ],
+    "checkIns": [
+      "Weekly",
+      "Every 2 weeks",
+      "Monthly"
+    ],
+    "communication": [
+      "Email",
+      "Messaging app",
+      "Video call",
+      "Phone call"
+    ],
+    "proteinSources": [
+      "Chicken",
+      "Turkey",
+      "Fish",
+      "Seafood",
+      "Eggs",
+      "Greek yogurt",
+      "Cottage cheese",
+      "Beef",
+      "Plant-based proteins",
+      "Protein powder"
+    ],
+    "carbSources": [
+      "Oats",
+      "Rice",
+      "Quinoa",
+      "Potatoes",
+      "Sweet potatoes",
+      "Beans and legumes",
+      "Fruit",
+      "Whole-grain bread",
+      "Pasta",
+      "Tortillas"
+    ],
+    "fatSources": [
+      "Avocado",
+      "Olive oil",
+      "Nuts",
+      "Seeds",
+      "Nut butter",
+      "Fatty fish",
+      "Cheese",
+      "Whole eggs",
+      "Coconut",
+      "Dark chocolate"
+    ],
+    "secondaryGoals": [
+      "Fat loss",
+      "Muscle gain",
+      "Improve performance",
+      "Improve health markers",
+      "Improve relationship with food",
+      "Body recomposition"
+    ]
+  },
+  "validation": {
+    "required": "This field is required.",
+    "email": "Enter a valid email address.",
+    "phone": "Enter a valid phone number.",
+    "range": "Value is out of allowed range.",
+    "macroAllOrNone": "Provide protein, carbs, and fat targets together.",
+    "macroRange": "Macro targets should be between 10 and 600 grams.",
+    "allergyItems": "Please list at least one allergy or intolerance.",
+    "atLeastOneGoal": "Select at least one goal.",
+    "consent": "Consent required to submit.",
+    "duration": "Please spend at least 15 seconds completing the form before submitting.",
+    "honeypot": "Spam detected."
+  },
+  "units": {
+    "metric": "Metric (kg, cm)",
+    "imperial": "Imperial (lb, in)"
+  },
+  "progress": {
+    "title": "Progress",
+    "completed": "{{count}} of {{total}} required questions completed"
+  },
+  "draft": {
+    "saved": "Draft saved",
+    "saving": "Saving..."
+  },
+  "success": {
+    "title": "Thank you!",
+    "desc": "Your submission was received. Your ID is {{id}}.",
+    "print": "Print confirmation",
+    "download": "Download PDF",
+    "back": "Return home"
+  },
+  "summary": {
+    "title": "Submission summary",
+    "subtitle": "Keep this for your records.",
+    "submitted": "Submitted on {{date}}"
+  },
+  "pdf": {
+    "title": "Nutrition Questionnaire Submission",
+    "footer": "Generated by PodiumX Nutrition"
+  }
+}
