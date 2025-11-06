@@ -2,7 +2,7 @@
 
 import { ReactNode, useEffect, useState } from "react";
 import { I18nextProvider } from "react-i18next";
-import { createBrowserI18n } from "@/lib/i18n";
+import { getClientI18n } from "@/lib/i18n";
 import { Language } from "@/lib/i18n-config";
 
 interface Props {
@@ -12,14 +12,22 @@ interface Props {
 }
 
 export function TranslationProvider({ locale, resources, children }: Props) {
-  const [instance] = useState(() => createBrowserI18n(locale, resources));
+  const [instance, setInstance] = useState<any>(null);
 
   useEffect(() => {
-    Object.entries(resources).forEach(([ns, resource]) => {
-      instance.addResourceBundle(locale, ns, resource, true, true);
+    getClientI18n(locale).then((i18nInstance) => {
+      Object.entries(resources).forEach(([ns, resource]) => {
+        if (!i18nInstance.hasResourceBundle(locale, ns)) {
+          i18nInstance.addResourceBundle(locale, ns, resource, true, true);
+        }
+      });
+      setInstance(i18nInstance);
     });
-    instance.changeLanguage(locale);
-  }, [instance, locale, resources]);
+  }, [locale, resources]);
+
+  if (!instance) {
+    return null;
+  }
 
   return <I18nextProvider i18n={instance}>{children}</I18nextProvider>;
 }
